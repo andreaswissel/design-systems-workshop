@@ -38,7 +38,7 @@ Please bring your developer devices and install the following software. [Already
 
 On your favorite terminal, please run:
 
-```
+```bash
 npm uninstall -g @angular/cli @storybook/cli
 npm cache verify
 npm install -g @angular/cli@13.0.3
@@ -46,7 +46,7 @@ npm install -g @angular/cli@13.0.3
 
 Next, navigate to a folder of your choice and execute:
 
-```
+```bash
 git clone https://github.com/andreaswissel/design-systems-workshop.git
 cd design-systems-workshop
 ```
