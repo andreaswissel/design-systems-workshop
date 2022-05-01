@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+/* These are our global styles */
+
+* {
+  box-sizing: border-box;
+}
+
+app-button,
+app-input,
+app-login,
+app-form-group {
+  display: block;
+}
