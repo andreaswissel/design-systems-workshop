@@ -187,13 +187,13 @@
         },
         {
             "name": "ButtonModule",
-            "id": "module-ButtonModule-9d1a08c6a1bb7b6287d44c11d677aeb0dc969528110d9fdfc8537a68c669c8ad4793732a71f43e63dd3d6e97edc2ec33ddfd43aa2f21572695f5ccf2e2debc15",
+            "id": "module-ButtonModule-09baf7c1f36db99d346bca37b7c56f05e73977143b3c2735e86fac237c9bb4e9aac5b5926674fc49d314eff763f71e32152e4a6f66d4124ee512f68d70a71729",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/button/button.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonComponent } from './button.component';\n\n\n\n@NgModule({\n  declarations: [\n    ButtonComponent\n  ],\n  imports: [\n    CommonModule\n  ]\n})\nexport class ButtonModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonComponent } from './button.component';\n\n@NgModule({\n  declarations: [ButtonComponent],\n  imports: [CommonModule],\n  exports: [ButtonComponent],\n})\nexport class ButtonModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -213,7 +213,11 @@
                 },
                 {
                     "type": "exports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "bootstrap",
