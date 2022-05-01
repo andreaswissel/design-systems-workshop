@@ -1,0 +1,32 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { moduleMetadata } from "@storybook/angular";
+import { ButtonModule } from "../app/button/button.module.ts";
+
+<Meta
+  title="Docs/MDX Format"
+  decorators={[
+    moduleMetadata({
+      imports: [ButtonModule],
+    }),
+  ]}
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+# This is the MDX format
+
+We can use it to write documentation in the markdown format, with a few nifty extras!
+See the <a href="https://storybook.js.org/docs/react/writing-docs/mdx" target="_blank">official Storybook documentation</a> for everything that's possible.
+
+<Canvas>
+  <Story name="Showcasing components in MDX" height="80px">
+    {{
+      template: `
+<app-button [label]="'Fully functional button!'"></app-button>`,
+    }}
+  </Story>
+</Canvas>
