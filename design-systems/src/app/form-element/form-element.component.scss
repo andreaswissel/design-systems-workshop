@@ -1,0 +1,21 @@
+@import "../../styles/colors";
+@import "../../styles/typo";
+
+:host {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    @include body-typo();
+
+    cursor: pointer;
+    padding-bottom: 10px;
+  }
+
+  &:hover,
+  &:focus {
+    label {
+      color: $blue-400;
+    }
+  }
+}

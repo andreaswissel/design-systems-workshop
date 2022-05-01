@@ -1,5 +1,9 @@
 @import "colors";
 
+body {
+  font-family: "SF Pro Display", Arial, Helvetica, sans-serif;
+}
+
 // Global typography
 
 @mixin body-typo() {

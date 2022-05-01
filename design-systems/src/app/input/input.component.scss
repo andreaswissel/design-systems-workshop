@@ -1,0 +1,29 @@
+@import "../../styles/colors";
+@import "../../styles/effects";
+
+:host {
+  display: flex;
+}
+
+input {
+  background: $white;
+
+  height: 40px;
+
+  border: 1px solid $gray-200;
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: $text-color;
+  padding: 12px;
+
+  &:hover {
+    @include hover-shadow();
+  }
+
+  &:focus {
+    @include hover-shadow();
+
+    border-color: $blue-400;
+    outline: none;
+  }
+}
