@@ -316,7 +316,7 @@
         },
         {
             "name": "FormElementComponent",
-            "id": "component-FormElementComponent-1cab1df3c784396582144071f7a526be50211a209b258f6662f33abd283b601d67c5d773bf5419a61607b8c417016e02cbecfa67690b3b422ff2f7eac4b1b256",
+            "id": "component-FormElementComponent-67c3029b6a698074edb9333014443e1b2c7bd0dd7b5d97680c67205633f511f4834384fc82463462f38cc9204cf190d5708d590323ccb6da4e584d6d1396cba3",
             "file": "src/app/form-element/form-element.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -353,6 +353,7 @@
                 },
                 {
                     "name": "placeholder",
+                    "defaultValue": "'Form Element Placeholder'",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 13,
@@ -361,6 +362,7 @@
                 },
                 {
                     "name": "value",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 14,
@@ -399,7 +401,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { InputApi, InputType } from '../input/input.component';\n\n@Component({\n  selector: 'app-form-element',\n  templateUrl: './form-element.component.html',\n  styleUrls: ['./form-element.component.scss'],\n})\nexport class FormElementComponent implements OnInit, InputApi {\n  uuid: string;\n\n  @Input() inputType: InputType = InputType.text;\n  @Input() placeholder?: string;\n  @Input() value?: string;\n  @Input() label = 'Input Label';\n\n  constructor() {\n    this.uuid = crypto.randomUUID();\n  }\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { InputApi, InputType } from '../input/input.component';\n\n@Component({\n  selector: 'app-form-element',\n  templateUrl: './form-element.component.html',\n  styleUrls: ['./form-element.component.scss'],\n})\nexport class FormElementComponent implements OnInit, InputApi {\n  uuid: string;\n\n  @Input() inputType: InputType = InputType.text;\n  @Input() placeholder: string = 'Form Element Placeholder';\n  @Input() value = '';\n  @Input() label = 'Input Label';\n\n  constructor() {\n    this.uuid = crypto.randomUUID();\n  }\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -420,7 +422,90 @@
                 "OnInit",
                 "InputApi"
             ],
-            "templateData": "<label [for]=\"uuid\">{{ label }}</label>\n<app-input\n  [placeholder]=\"placeholder\"\n  [type]=\"type\"\n  [value]=\"value\"\n  [id]=\"uuid\"\n></app-input>"
+            "templateData": "<label [for]=\"uuid\">{{ label }}</label>\n<app-input\n  [placeholder]=\"placeholder\"\n  [inputType]=\"inputType\"\n  [value]=\"value\"\n  [id]=\"uuid\"\n></app-input>\n"
+        },
+        {
+            "name": "FormLayoutComponent",
+            "id": "component-FormLayoutComponent-c8dc9afe3890898d7648f73345521519cd48d39e3a25149ceba21902ae288e350fec6887fab6e28e68761980602e479745a8d1b4da5ec298623fdbb26a06b93d",
+            "file": "src/app/form-layout/form-layout.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-form-layout",
+            "styleUrls": [
+                "./form-layout.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./form-layout.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "columns",
+                    "defaultValue": "1",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-form-layout',\n  templateUrl: './form-layout.component.html',\n  styleUrls: ['./form-layout.component.scss'],\n})\nexport class FormLayoutComponent implements OnInit {\n  @Input() columns = 1;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  get templateColumnsString() {\n    return `repeat(${this.columns}, 1fr)`;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".grid-layout {\n  display: grid;\n}\n",
+                    "styleUrl": "./form-layout.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 9
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "accessors": {
+                "templateColumnsString": {
+                    "name": "templateColumnsString",
+                    "getSignature": {
+                        "name": "templateColumnsString",
+                        "type": "",
+                        "returnType": "",
+                        "line": 15
+                    }
+                }
+            },
+            "templateData": "<div\n  class=\"grid-layout\"\n  [ngStyle]=\"{ 'grid-template-columns': templateColumnsString }\"\n>\n  <ng-content></ng-content>\n</div>\n"
         },
         {
             "name": "IconComponent",
@@ -598,7 +683,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<input\n  [type]=\"type\"\n  [placeholder]=\"placeholder\"\n  [value]=\"value\"\n  [attr.id]=\"id\"\n/>\n"
+            "templateData": "<input\n  [type]=\"inputType\"\n  [placeholder]=\"placeholder\"\n  [value]=\"value\"\n  [attr.id]=\"id\"\n/>\n"
         }
     ],
     "modules": [
@@ -696,13 +781,13 @@
         },
         {
             "name": "FormElementModule",
-            "id": "module-FormElementModule-60577f1f81dd00b488039ee464dbb4d53b17214792f1cff10d793a413f22f60f0d4bbdaca2bae745d1a4389b5482b90c213d1a5e97c1cdea8234ed5651ee0960",
+            "id": "module-FormElementModule-443521f0daa6ac5535e30e2021893bf35619847131910f06c500fb0382e6d6661ceb295bff5b656cbbfba81547a2adce0a051d2260d19d63ef5c2b02762373a7",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/form-element/form-element.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormElementComponent } from './form-element.component';\nimport { InputModule } from '../input/input.module';\n\n@NgModule({\n  declarations: [FormElementComponent],\n  imports: [CommonModule, InputModule],\n})\nexport class FormElementModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormElementComponent } from './form-element.component';\nimport { InputModule } from '../input/input.module';\n\n@NgModule({\n  declarations: [FormElementComponent],\n  imports: [CommonModule, InputModule],\n  exports: [FormElementComponent],\n})\nexport class FormElementModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -723,6 +808,50 @@
                             "name": "InputModule"
                         }
                     ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "FormElementComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "FormLayoutModule",
+            "id": "module-FormLayoutModule-463a5e6625b6850b0e44e21aa4a97015616cda9d287d53efec4e4c1d90b3db66fee4191869d9af45b97d7867569b2df63103918cdad569d35f3452f71f818601",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/form-layout/form-layout.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormLayoutComponent } from './form-layout.component';\n\n\n\n@NgModule({\n  declarations: [\n    FormLayoutComponent\n  ],\n  imports: [\n    CommonModule\n  ]\n})\nexport class FormLayoutModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "FormLayoutComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
                 },
                 {
                     "type": "exports",
@@ -860,6 +989,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "DefaultFormLayout",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/form-layout/form-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "DefaultIcon",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -932,16 +1071,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/icon/icon.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<IconComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/form-element/form-element.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -952,10 +1081,30 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/form-layout/form-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<>",
+                "defaultValue": "(args) => ({\n  props: { args },\n  template: `\n  <app-form-layout [columns]=\"args.columns\">\n    <app-form-element label=\"Username\"></app-form-element>\n    <app-form-element label=\"Password\" type=\"password\"></app-form-element>\n  </app-form-layout>\n  `,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<InputComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<IconComponent>",
                 "defaultValue": "(args) => ({\n  props: args,\n})"
             }
         ],
@@ -1073,6 +1222,17 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 186
+            },
+            {
+                "name": "FormLayoutProps",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/form-layout/form-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 181
             }
         ],
         "enumerations": [
@@ -1294,6 +1454,28 @@
                     "deprecationMessage": "",
                     "type": "Story<FormElementComponent>",
                     "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/app/form-layout/form-layout.stories.ts": [
+                {
+                    "name": "DefaultFormLayout",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/form-layout/form-layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/form-layout/form-layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<>",
+                    "defaultValue": "(args) => ({\n  props: { args },\n  template: `\n  <app-form-layout [columns]=\"args.columns\">\n    <app-form-element label=\"Username\"></app-form-element>\n    <app-form-element label=\"Password\" type=\"password\"></app-form-element>\n  </app-form-layout>\n  `,\n})"
                 }
             ],
             "src/app/icon/icon.stories.ts": [
@@ -1630,6 +1812,19 @@
                     "description": "",
                     "kind": 186
                 }
+            ],
+            "src/app/form-layout/form-layout.stories.ts": [
+                {
+                    "name": "FormLayoutProps",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/form-layout/form-layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
             ]
         }
     },
@@ -1736,6 +1931,35 @@
             },
             {
                 "filePath": "src/app/form-element/form-element.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/form-layout/form-layout.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FormLayoutComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/form-layout/form-layout.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DefaultFormLayout",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/form-layout/form-layout.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
