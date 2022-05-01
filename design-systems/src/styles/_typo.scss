@@ -1,0 +1,42 @@
+@import "colors";
+
+// Global typography
+
+@mixin body-typo() {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+@mixin heading-typo() {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+@mixin link-typo() {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: $blue-400;
+}
+
+body {
+  @include body-typo();
+}
+
+h1 {
+  @include heading-typo();
+}
+
+a {
+  @include link-typo();
+}

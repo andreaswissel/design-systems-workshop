@@ -1,7 +1,9 @@
-button {
-  background: #0085fc;
+@import "../../styles/colors";
 
-  border: 1px solid #0357a3;
+button {
+  background: $blue-400;
+
+  border: 1px solid $blue-700;
   box-sizing: border-box;
   box-shadow: inset 0px 2px 0px rgba(202, 230, 255, 0.15);
   border-radius: 5px;
@@ -20,13 +22,13 @@ button {
   padding: 11px 16px;
 
   &.primary {
-    background: #0085fc;
-    border: 1px solid #0357a3;
+    background: $blue-400;
+    border: 1px solid $blue-700;
   }
 
   &.secondary {
-    background: #e4e8f3;
-    border: 1px solid #cbd0e1;
-    color: #041c31;
+    background: $gray-100;
+    border: 1px solid $gray-200;
+    color: $text-color;
   }
 }
