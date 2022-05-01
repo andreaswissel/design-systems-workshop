@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 
 export type ButtonType = 'primary' | 'secondary';
 
@@ -15,8 +16,17 @@ export type ButtonType = 'primary' | 'secondary';
 export class ButtonComponent implements OnInit {
   @Input() public label: string = 'Button Label';
   @Input() public type: ButtonType = 'primary';
+  @Input() public icon: IconName | undefined;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  getIconColor() {
+    if (this.type == 'primary') {
+      return 'white';
+    } else {
+      return 'black';
+    }
+  }
 }

@@ -1,1 +1,8 @@
-<button [attr.class]="type">{{ label }}</button>
+<button [attr.class]="type">
+  <app-icon
+    [iconName]="icon"
+    [iconColor]="getIconColor()"
+    *ngIf="icon"
+  ></app-icon>
+  {{ label }}
+</button>
