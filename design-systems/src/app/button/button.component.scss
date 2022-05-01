@@ -18,4 +18,15 @@ button {
   color: #ffffff;
 
   padding: 11px 16px;
+
+  &.primary {
+    background: #0085fc;
+    border: 1px solid #0357a3;
+  }
+
+  &.secondary {
+    background: #e4e8f3;
+    border: 1px solid #cbd0e1;
+    color: #041c31;
+  }
 }

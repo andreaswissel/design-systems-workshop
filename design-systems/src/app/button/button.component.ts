@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+export type ButtonType = 'primary' | 'secondary';
+
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
@@ -7,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   @Input() public label: string = 'Button Label';
+  @Input() public type: ButtonType = 'primary';
 
   constructor() {}
 
