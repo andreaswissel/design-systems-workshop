@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { InputApi, InputType } from '../input/input.component';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { InputApi, InputComponent, InputType } from '../input/input.component';
 
 @Component({
   selector: 'app-form-element',
@@ -14,9 +14,15 @@ export class FormElementComponent implements OnInit, InputApi {
   @Input() value = '';
   @Input() label = 'Input Label';
 
+  @ViewChild(InputComponent, { static: false }) input!: InputComponent;
+
   constructor() {
     this.uuid = crypto.randomUUID();
   }
 
   ngOnInit(): void {}
+
+  get text(): string {
+    return this.input.text;
+  }
 }

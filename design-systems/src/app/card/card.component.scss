@@ -1,0 +1,22 @@
+@import "../../styles/colors";
+@import "../../styles/effects";
+@import "../../styles/typo";
+
+:host {
+  background-color: $white;
+  border: 1px solid $gray-100;
+
+  min-width: 300px;
+
+  border-radius: 10px;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 24px;
+
+  @include elevated-shadow();
+}
+
+h1 {
+  margin-top: 8px;
+  @include heading-typo();
+}
