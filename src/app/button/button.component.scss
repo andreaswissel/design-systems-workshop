@@ -15,13 +15,17 @@ button {
   font-family: "Inter", Helvetica, Arial, Helvetica, sans-serif;
 
   &.primary {
-    border: 1px solid $blue-700;
     background: $blue-400;
+    border: 1px solid $blue-700;
   }
 
   &.secondary {
-    border: 1px solid $gray-200;
     background: $gray-100;
+    border: 1px solid $gray-200;
     color: $text-default;
+  }
+
+  app-icon {
+    margin-right: 12px;
   }
 }

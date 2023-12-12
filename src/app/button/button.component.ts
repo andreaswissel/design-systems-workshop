@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { IconComponent } from '../icon/icon.component';
+import { CommonModule } from '@angular/common';
 
 type ButtonType = 'primary' | 'secondary';
 
@@ -14,11 +17,12 @@ type ButtonType = 'primary' | 'secondary';
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [],
+  imports: [IconComponent, CommonModule],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
   @Input() public label: string = 'Button Label';
   @Input() public type: ButtonType = 'primary';
+  @Input() public icon: IconName | undefined;
 }
