@@ -66,7 +66,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-5680c3282ff1404280e98e3000d28b24d38da666a877032c51e03644426395d5aa010827ced7d3f23fd8d5566161a64b47bce19c5bbe68e29501a64017a13059",
+            "id": "component-ButtonComponent-27bcf0d1cd3abfa887e46a88ebc670a4367c66e7f6f05e1d269d80af3ccacab26a90496fa65723b0fae7ae61725be07c555e139df3e70241474a626834cf184d",
             "file": "src/app/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -87,7 +87,7 @@
                     "defaultValue": "'Button Label'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "line": 22,
                     "type": "string",
                     "decorators": []
                 },
@@ -96,7 +96,7 @@
                     "defaultValue": "'primary'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 23,
                     "type": "ButtonType",
                     "decorators": []
                 }
@@ -110,10 +110,10 @@
             "hostListeners": [],
             "standalone": true,
             "imports": [],
-            "description": "",
-            "rawdescription": "\n",
+            "description": "<p>This is the button component. It can be used to build clicky things!</p>\n<p><a href=\"https://www.figma.com/file/X1JRLUCEp6JnoeKAxRPNeF/Angular-Architects-Design-Systems?node-id=1%3A3\">Figma reference</a>\n |\n<a href=\"https://github.com/andreaswissel/design-systems-workshop-latest/blob/lab-6/src/app/button/button.component.ts\">Implementation</a>\n |\n<a href=\"https://github.com/andreaswissel/design-systems-workshop/wiki/Lab-06:-Documentation\">Specification</a></p>\n",
+            "rawdescription": "\n\nThis is the button component. It can be used to build clicky things!\n\n[Figma reference](https://www.figma.com/file/X1JRLUCEp6JnoeKAxRPNeF/Angular-Architects-Design-Systems?node-id=1%3A3)\n |\n[Implementation](https://github.com/andreaswissel/design-systems-workshop-latest/blob/lab-6/src/app/button/button.component.ts)\n |\n[Specification](https://github.com/andreaswissel/design-systems-workshop/wiki/Lab-06:-Documentation)\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\ntype ButtonType = 'primary' | 'secondary';\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [],\n  templateUrl: './button.component.html',\n  styleUrl: './button.component.scss',\n})\nexport class ButtonComponent {\n  @Input() public label: string = 'Button Label';\n  @Input() public type: ButtonType = 'primary';\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\ntype ButtonType = 'primary' | 'secondary';\n\n/**\n * This is the button component. It can be used to build clicky things!\n *\n * [Figma reference](https://www.figma.com/file/X1JRLUCEp6JnoeKAxRPNeF/Angular-Architects-Design-Systems?node-id=1%3A3)\n *  |\n * [Implementation](https://github.com/andreaswissel/design-systems-workshop-latest/blob/lab-6/src/app/button/button.component.ts)\n *  |\n * [Specification](https://github.com/andreaswissel/design-systems-workshop/wiki/Lab-06:-Documentation)\n */\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [],\n  templateUrl: './button.component.html',\n  styleUrl: './button.component.scss',\n})\nexport class ButtonComponent {\n  @Input() public label: string = 'Button Label';\n  @Input() public type: ButtonType = 'primary';\n}\n",
             "styleUrl": "./button.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -249,7 +249,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 0,
+        "count": 5,
         "status": "low",
         "files": [
             {
@@ -286,9 +286,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
-                "status": "low"
+                "coveragePercent": 33,
+                "coverageCount": "1/3",
+                "status": "medium"
             },
             {
                 "filePath": "src/app/button/button.stories.ts",
