@@ -283,6 +283,79 @@
             "templateData": "<label [for]=\"uuid\">{{ label }}</label>\n<app-input\n  [placeholder]=\"placeholder\"\n  [inputType]=\"inputType\"\n  [value]=\"value\"\n  [id]=\"uuid\"\n></app-input>\n"
         },
         {
+            "name": "FormLayoutComponent",
+            "id": "component-FormLayoutComponent-1521ad3564bb215dbf5e648dea3771b80bb7bfed09568d99551c08d08a9d6eebc9bd15badf62f3c660ca4f134d71d18b3cce60fe4ea8653d7cf0d129dd1f181f",
+            "file": "src/app/form-layout/form-layout.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-form-layout",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./form-layout.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "columns",
+                    "defaultValue": "1",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "heading",
+                    "defaultValue": "'Form Heading'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-form-layout',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './form-layout.component.html',\n  styleUrl: './form-layout.component.scss',\n})\nexport class FormLayoutComponent {\n  @Input() columns = 1;\n  @Input() heading: string = 'Form Heading';\n\n  get templateColumnsString() {\n    return `repeat(${this.columns}, 1fr)`;\n  }\n}\n",
+            "styleUrl": "./form-layout.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "templateColumnsString": {
+                    "name": "templateColumnsString",
+                    "getSignature": {
+                        "name": "templateColumnsString",
+                        "type": "",
+                        "returnType": "",
+                        "line": 15
+                    }
+                }
+            },
+            "templateData": "<div\n  class=\"grid-layout\"\n  [ngStyle]=\"{ 'grid-template-columns': templateColumnsString }\"\n>\n  <ng-content></ng-content>\n</div>\n"
+        },
+        {
             "name": "IconComponent",
             "id": "component-IconComponent-905a11a30243a13125de2c97d6cb2691498807be4ae9358df5538ff9af87a72d65bfb60e7725e327ee8f6f7065aad7bfb95bad578ebd2b5a3c5de47a9b9e92a6",
             "file": "src/app/icon/icon.component.ts",
@@ -451,21 +524,31 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/form-element/form-element.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "StoryObj<FormElementComponent>",
-                "defaultValue": "{\n  args: {\n    ...InputStories.Default.args,\n  },\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "StoryObj<ButtonComponent>",
                 "defaultValue": "{\n  args: {},\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/form-layout/form-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "StoryObj<FormLayoutWithAux>",
+                "defaultValue": "{\n  args: {\n    FirstInputLabel: 'Username',\n    FirstInputType: InputType.text,\n    SecondInputLabel: 'Password',\n    SecondInputType: InputType.password,\n    columns: 2,\n    heading: 'Login Form',\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "StoryObj<InputComponent>",
+                "defaultValue": "{\n  args: {\n    inputType: InputType.text,\n    placeholder: 'This is a placeholder',\n    value: '',\n    id: 'uuid',\n  },\n  argTypes: {\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n  },\n}"
             },
             {
                 "name": "Default",
@@ -481,21 +564,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/input/input.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "StoryObj<InputComponent>",
-                "defaultValue": "{\n  args: {\n    inputType: InputType.text,\n    placeholder: 'This is a placeholder',\n    value: '',\n    id: 'uuid',\n  },\n  argTypes: {\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/form-element/form-element.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<FormElementComponent>",
-                "defaultValue": "{\n  title: 'Components/FormElement',\n  component: FormElementComponent,\n  tags: ['autodocs'],\n}"
+                "type": "StoryObj<FormElementComponent>",
+                "defaultValue": "{\n  args: {\n    ...InputStories.Default.args,\n    label: 'Form Element Label',\n  },\n}"
             },
             {
                 "name": "meta",
@@ -511,11 +584,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/icon/icon.stories.ts",
+                "file": "src/app/form-layout/form-layout.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<IconComponent>",
-                "defaultValue": "{\n  title: 'Components/Icon',\n  component: IconComponent,\n  tags: ['autodocs'],\n}"
+                "type": "Meta<FormLayoutWithAux>",
+                "defaultValue": "{\n  title: 'Components/FormLayout',\n  component: FormLayoutComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [FormLayoutComponent, FormElementComponent],\n    }),\n  ],\n  render: (args: FormLayoutWithAux) => ({\n    props: { ...args },\n    template: `\n    <app-form-layout [columns]=\"${args.columns}\" [heading]=\"${args.heading}\">\n        <app-form-element label=\"${args.FirstInputLabel}\" inputType=\"${args.FirstInputType}\"></app-form-element>\n        <app-form-element label=\"${args.SecondInputLabel}\" inputType=\"${args.SecondInputType}\"></app-form-element>\n      </app-form-layout>\n    `,\n  }),\n}"
             },
             {
                 "name": "meta",
@@ -526,6 +599,26 @@
                 "deprecationMessage": "",
                 "type": "Meta<InputComponent>",
                 "defaultValue": "{\n  title: 'Components/Input',\n  component: InputComponent,\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<IconComponent>",
+                "defaultValue": "{\n  title: 'Components/Icon',\n  component: IconComponent,\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/form-element/form-element.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<FormElementComponent>",
+                "defaultValue": "{\n  title: 'Components/FormElement',\n  component: FormElementComponent,\n  tags: ['autodocs'],\n}"
             },
             {
                 "name": "preview",
@@ -560,6 +653,28 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 192
+            },
+            {
+                "name": "ExternalProps",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/form-layout/form-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            },
+            {
+                "name": "FormLayoutWithAux",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "src/app/form-layout/form-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 193
             }
         ],
         "enumerations": [
@@ -720,28 +835,6 @@
                     "defaultValue": "{\n  providers: [provideRouter(routes)]\n}"
                 }
             ],
-            "src/app/form-element/form-element.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/form-element/form-element.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "StoryObj<FormElementComponent>",
-                    "defaultValue": "{\n  args: {\n    ...InputStories.Default.args,\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/form-element/form-element.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<FormElementComponent>",
-                    "defaultValue": "{\n  title: 'Components/FormElement',\n  component: FormElementComponent,\n  tags: ['autodocs'],\n}"
-                }
-            ],
             "src/app/button/button.stories.ts": [
                 {
                     "name": "Default",
@@ -774,26 +867,26 @@
                     "defaultValue": "{\n  args: {\n    label: 'Want to buy me a coffee?',\n    icon: 'coffee',\n  },\n}"
                 }
             ],
-            "src/app/icon/icon.stories.ts": [
+            "src/app/form-layout/form-layout.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/icon/icon.stories.ts",
+                    "file": "src/app/form-layout/form-layout.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "StoryObj<IconComponent>",
-                    "defaultValue": "{\n  args: {\n    iconName: 'coffee',\n  },\n}"
+                    "type": "StoryObj<FormLayoutWithAux>",
+                    "defaultValue": "{\n  args: {\n    FirstInputLabel: 'Username',\n    FirstInputType: InputType.text,\n    SecondInputLabel: 'Password',\n    SecondInputType: InputType.password,\n    columns: 2,\n    heading: 'Login Form',\n  },\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/icon/icon.stories.ts",
+                    "file": "src/app/form-layout/form-layout.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<IconComponent>",
-                    "defaultValue": "{\n  title: 'Components/Icon',\n  component: IconComponent,\n  tags: ['autodocs'],\n}"
+                    "type": "Meta<FormLayoutWithAux>",
+                    "defaultValue": "{\n  title: 'Components/FormLayout',\n  component: FormLayoutComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [FormLayoutComponent, FormElementComponent],\n    }),\n  ],\n  render: (args: FormLayoutWithAux) => ({\n    props: { ...args },\n    template: `\n    <app-form-layout [columns]=\"${args.columns}\" [heading]=\"${args.heading}\">\n        <app-form-element label=\"${args.FirstInputLabel}\" inputType=\"${args.FirstInputType}\"></app-form-element>\n        <app-form-element label=\"${args.SecondInputLabel}\" inputType=\"${args.SecondInputType}\"></app-form-element>\n      </app-form-layout>\n    `,\n  }),\n}"
                 }
             ],
             "src/app/input/input.stories.ts": [
@@ -816,6 +909,50 @@
                     "deprecationMessage": "",
                     "type": "Meta<InputComponent>",
                     "defaultValue": "{\n  title: 'Components/Input',\n  component: InputComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
+            "src/app/icon/icon.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "StoryObj<IconComponent>",
+                    "defaultValue": "{\n  args: {\n    iconName: 'coffee',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<IconComponent>",
+                    "defaultValue": "{\n  title: 'Components/Icon',\n  component: IconComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
+            "src/app/form-element/form-element.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/form-element/form-element.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "StoryObj<FormElementComponent>",
+                    "defaultValue": "{\n  args: {\n    ...InputStories.Default.args,\n    label: 'Form Element Label',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/form-element/form-element.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<FormElementComponent>",
+                    "defaultValue": "{\n  title: 'Components/FormElement',\n  component: FormElementComponent,\n  tags: ['autodocs'],\n}"
                 }
             ],
             ".storybook/preview.ts": [
@@ -992,6 +1129,30 @@
                     "description": "",
                     "kind": 192
                 }
+            ],
+            "src/app/form-layout/form-layout.stories.ts": [
+                {
+                    "name": "ExternalProps",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/form-layout/form-layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                },
+                {
+                    "name": "FormLayoutWithAux",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "src/app/form-layout/form-layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 193
+                }
             ]
         }
     },
@@ -1089,6 +1250,35 @@
             },
             {
                 "filePath": "src/app/form-element/form-element.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/form-layout/form-layout.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FormLayoutComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/form-layout/form-layout.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/form-layout/form-layout.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
