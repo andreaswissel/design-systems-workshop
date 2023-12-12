@@ -1,6 +1,49 @@
 {
     "pipes": [],
-    "interfaces": [],
+    "interfaces": [
+        {
+            "name": "InputApi",
+            "id": "interface-InputApi-c93c24a3a014b1989b5436636ca36e4442aaec4138e6a8fe0612fb524d3c8a68b2c798b1992148acc5401eeff5af139adbd425217137513aac310fb4d1ce820a",
+            "file": "src/app/input/input.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\nexport enum InputType {\n  button = 'button',\n  checkbox = 'checkbox',\n  color = 'color',\n  date = 'date',\n  datetimelocal = 'datetime-local',\n  email = 'email',\n  file = 'file',\n  hidden = 'hidden',\n  image = 'image',\n  month = 'month',\n  number = 'number',\n  password = 'password',\n  radio = 'radio',\n  range = 'range',\n  reset = 'reset',\n  search = 'search',\n  submit = 'submit',\n  tel = 'tel',\n  text = 'text',\n  time = 'time',\n  url = 'url',\n  week = 'week',\n}\n\nexport interface InputApi {\n  inputType: InputType;\n  placeholder?: string;\n  value?: string;\n}\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [],\n  templateUrl: './input.component.html',\n  styleUrl: './input.component.scss',\n})\nexport class InputComponent {\n  @Input() inputType: InputType = InputType.text;\n  @Input() placeholder: string | undefined;\n  @Input() value: string | undefined;\n  @Input() id?: string;\n}\n",
+            "properties": [
+                {
+                    "name": "inputType",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "InputType",
+                    "optional": false,
+                    "description": "",
+                    "line": 29
+                },
+                {
+                    "name": "placeholder",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 30
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 31
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        }
+    ],
     "injectables": [],
     "guards": [],
     "interceptors": [],
@@ -139,6 +182,107 @@
             "templateData": "<button [attr.class]=\"type\">\n  <app-icon [iconName]=\"icon\" *ngIf=\"icon\"></app-icon>\n  {{ label }}\n</button>\n"
         },
         {
+            "name": "FormElementComponent",
+            "id": "component-FormElementComponent-aadfbb30f896b5f49f1aa76f7c109276ecece47c934f8436d95fa0d4c59a9f6852b4de62bdf625bea854834dcfa1ac19d20a043773596bc383764a228c502f57",
+            "file": "src/app/form-element/form-element.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-form-element",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./form-element.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "inputType",
+                    "defaultValue": "InputType.text",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "InputType",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Input Label'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "defaultValue": "'Form Element Placeholder'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "uuid",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "InputComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { InputApi, InputComponent, InputType } from '../input/input.component';\n\n@Component({\n  selector: 'app-form-element',\n  standalone: true,\n  imports: [InputComponent],\n  templateUrl: './form-element.component.html',\n  styleUrl: './form-element.component.scss',\n})\nexport class FormElementComponent implements InputApi {\n  uuid: string;\n\n  @Input() inputType: InputType = InputType.text;\n  @Input() placeholder: string = 'Form Element Placeholder';\n  @Input() value = '';\n  @Input() label = 'Input Label';\n\n  constructor() {\n    this.uuid = crypto.randomUUID();\n  }\n}\n",
+            "styleUrl": "./form-element.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 17
+            },
+            "extends": [],
+            "implements": [
+                "InputApi"
+            ],
+            "templateData": "<label [for]=\"uuid\">{{ label }}</label>\n<app-input\n  [placeholder]=\"placeholder\"\n  [inputType]=\"inputType\"\n  [value]=\"value\"\n  [id]=\"uuid\"\n></app-input>\n"
+        },
+        {
             "name": "IconComponent",
             "id": "component-IconComponent-905a11a30243a13125de2c97d6cb2691498807be4ae9358df5538ff9af87a72d65bfb60e7725e327ee8f6f7065aad7bfb95bad578ebd2b5a3c5de47a9b9e92a6",
             "file": "src/app/icon/icon.component.ts",
@@ -216,6 +360,78 @@
             },
             "extends": [],
             "templateData": "<fa-icon [icon]=\"iconName\"></fa-icon>\n"
+        },
+        {
+            "name": "InputComponent",
+            "id": "component-InputComponent-c93c24a3a014b1989b5436636ca36e4442aaec4138e6a8fe0612fb524d3c8a68b2c798b1992148acc5401eeff5af139adbd425217137513aac310fb4d1ce820a",
+            "file": "src/app/input/input.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-input",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 45,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "inputType",
+                    "defaultValue": "InputType.text",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": "InputType",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 43,
+                    "type": "string | undefined",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 44,
+                    "type": "string | undefined",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\nexport enum InputType {\n  button = 'button',\n  checkbox = 'checkbox',\n  color = 'color',\n  date = 'date',\n  datetimelocal = 'datetime-local',\n  email = 'email',\n  file = 'file',\n  hidden = 'hidden',\n  image = 'image',\n  month = 'month',\n  number = 'number',\n  password = 'password',\n  radio = 'radio',\n  range = 'range',\n  reset = 'reset',\n  search = 'search',\n  submit = 'submit',\n  tel = 'tel',\n  text = 'text',\n  time = 'time',\n  url = 'url',\n  week = 'week',\n}\n\nexport interface InputApi {\n  inputType: InputType;\n  placeholder?: string;\n  value?: string;\n}\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [],\n  templateUrl: './input.component.html',\n  styleUrl: './input.component.scss',\n})\nexport class InputComponent {\n  @Input() inputType: InputType = InputType.text;\n  @Input() placeholder: string | undefined;\n  @Input() value: string | undefined;\n  @Input() id?: string;\n}\n",
+            "styleUrl": "./input.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<input\n  [type]=\"inputType\"\n  [placeholder]=\"placeholder\"\n  [value]=\"value\"\n  [attr.id]=\"id\"\n/>\n"
         }
     ],
     "modules": [],
@@ -230,6 +446,16 @@
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
                 "defaultValue": "{\n  providers: [provideRouter(routes)]\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/form-element/form-element.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "StoryObj<FormElementComponent>",
+                "defaultValue": "{\n  args: {\n    ...InputStories.Default.args,\n  },\n}"
             },
             {
                 "name": "Default",
@@ -252,6 +478,26 @@
                 "defaultValue": "{\n  args: {\n    iconName: 'coffee',\n  },\n}"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "StoryObj<InputComponent>",
+                "defaultValue": "{\n  args: {\n    inputType: InputType.text,\n    placeholder: 'This is a placeholder',\n    value: '',\n    id: 'uuid',\n  },\n  argTypes: {\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/form-element/form-element.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<FormElementComponent>",
+                "defaultValue": "{\n  title: 'Components/FormElement',\n  component: FormElementComponent,\n  tags: ['autodocs'],\n}"
+            },
+            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -270,6 +516,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<IconComponent>",
                 "defaultValue": "{\n  title: 'Components/Icon',\n  component: IconComponent,\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<InputComponent>",
+                "defaultValue": "{\n  title: 'Components/Input',\n  component: InputComponent,\n  tags: ['autodocs'],\n}"
             },
             {
                 "name": "preview",
@@ -306,7 +562,151 @@
                 "kind": 192
             }
         ],
-        "enumerations": [],
+        "enumerations": [
+            {
+                "name": "InputType",
+                "childs": [
+                    {
+                        "name": "button",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "button"
+                    },
+                    {
+                        "name": "checkbox",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "checkbox"
+                    },
+                    {
+                        "name": "color",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "color"
+                    },
+                    {
+                        "name": "date",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "date"
+                    },
+                    {
+                        "name": "datetimelocal",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "datetime-local"
+                    },
+                    {
+                        "name": "email",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "email"
+                    },
+                    {
+                        "name": "file",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "file"
+                    },
+                    {
+                        "name": "hidden",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "hidden"
+                    },
+                    {
+                        "name": "image",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "image"
+                    },
+                    {
+                        "name": "month",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "month"
+                    },
+                    {
+                        "name": "number",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "number"
+                    },
+                    {
+                        "name": "password",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "password"
+                    },
+                    {
+                        "name": "radio",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "radio"
+                    },
+                    {
+                        "name": "range",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "range"
+                    },
+                    {
+                        "name": "reset",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "reset"
+                    },
+                    {
+                        "name": "search",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "search"
+                    },
+                    {
+                        "name": "submit",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "submit"
+                    },
+                    {
+                        "name": "tel",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "tel"
+                    },
+                    {
+                        "name": "text",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "text"
+                    },
+                    {
+                        "name": "time",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "time"
+                    },
+                    {
+                        "name": "url",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "url"
+                    },
+                    {
+                        "name": "week",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "week"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/app/input/input.component.ts"
+            }
+        ],
         "groupedVariables": {
             "src/app/app.config.ts": [
                 {
@@ -318,6 +718,28 @@
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
                     "defaultValue": "{\n  providers: [provideRouter(routes)]\n}"
+                }
+            ],
+            "src/app/form-element/form-element.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/form-element/form-element.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "StoryObj<FormElementComponent>",
+                    "defaultValue": "{\n  args: {\n    ...InputStories.Default.args,\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/form-element/form-element.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<FormElementComponent>",
+                    "defaultValue": "{\n  title: 'Components/FormElement',\n  component: FormElementComponent,\n  tags: ['autodocs'],\n}"
                 }
             ],
             "src/app/button/button.stories.ts": [
@@ -374,6 +796,28 @@
                     "defaultValue": "{\n  title: 'Components/Icon',\n  component: IconComponent,\n  tags: ['autodocs'],\n}"
                 }
             ],
+            "src/app/input/input.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "StoryObj<InputComponent>",
+                    "defaultValue": "{\n  args: {\n    inputType: InputType.text,\n    placeholder: 'This is a placeholder',\n    value: '',\n    id: 'uuid',\n  },\n  argTypes: {\n    placeholder: { control: 'text' },\n    value: { control: 'text' },\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<InputComponent>",
+                    "defaultValue": "{\n  title: 'Components/Input',\n  component: InputComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
             ".storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -388,7 +832,153 @@
             ]
         },
         "groupedFunctions": {},
-        "groupedEnumerations": {},
+        "groupedEnumerations": {
+            "src/app/input/input.component.ts": [
+                {
+                    "name": "InputType",
+                    "childs": [
+                        {
+                            "name": "button",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "button"
+                        },
+                        {
+                            "name": "checkbox",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "checkbox"
+                        },
+                        {
+                            "name": "color",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "color"
+                        },
+                        {
+                            "name": "date",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "date"
+                        },
+                        {
+                            "name": "datetimelocal",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "datetime-local"
+                        },
+                        {
+                            "name": "email",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "email"
+                        },
+                        {
+                            "name": "file",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "file"
+                        },
+                        {
+                            "name": "hidden",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "hidden"
+                        },
+                        {
+                            "name": "image",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "image"
+                        },
+                        {
+                            "name": "month",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "month"
+                        },
+                        {
+                            "name": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "number"
+                        },
+                        {
+                            "name": "password",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "password"
+                        },
+                        {
+                            "name": "radio",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "radio"
+                        },
+                        {
+                            "name": "range",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "range"
+                        },
+                        {
+                            "name": "reset",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "reset"
+                        },
+                        {
+                            "name": "search",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "search"
+                        },
+                        {
+                            "name": "submit",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "submit"
+                        },
+                        {
+                            "name": "tel",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "tel"
+                        },
+                        {
+                            "name": "text",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "text"
+                        },
+                        {
+                            "name": "time",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "time"
+                        },
+                        {
+                            "name": "url",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "url"
+                        },
+                        {
+                            "name": "week",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "week"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/app/input/input.component.ts"
+                }
+            ]
+        },
         "groupedTypeAliases": {
             "src/app/button/button.component.ts": [
                 {
@@ -407,7 +997,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 2,
+        "count": 1,
         "status": "low",
         "files": [
             {
@@ -479,6 +1069,35 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/form-element/form-element.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FormElementComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/form-element/form-element.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/form-element/form-element.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/icon/icon.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -499,6 +1118,44 @@
             },
             {
                 "filePath": "src/app/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/input/input.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/input/input.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "InputApi",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/input/input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
