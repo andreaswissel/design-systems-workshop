@@ -12,6 +12,7 @@ export const Default: StoryObj<FormElementComponent> = {
   args: {
     ...InputStories.Default.args,
     label: 'Form Element Label',
+    input: undefined,
   },
 };
 

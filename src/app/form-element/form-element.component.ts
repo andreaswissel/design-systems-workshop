@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { InputApi, InputComponent, InputType } from '../input/input.component';
 
 @Component({
@@ -16,7 +16,13 @@ export class FormElementComponent implements InputApi {
   @Input() value = '';
   @Input() label = 'Input Label';
 
+  @ViewChild(InputComponent, { static: false }) input!: InputComponent;
+
   constructor() {
     this.uuid = crypto.randomUUID();
+  }
+
+  get text(): string {
+    return this.input.text;
   }
 }

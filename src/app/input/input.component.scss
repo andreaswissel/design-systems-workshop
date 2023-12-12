@@ -15,6 +15,7 @@ input {
   border-radius: 10px;
   color: $text-default;
   padding: 12px;
+  flex: 1;
 
   &:hover {
     @include hover-shadow();

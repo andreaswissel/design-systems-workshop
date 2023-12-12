@@ -1,0 +1,20 @@
+<app-card>
+  <app-form-layout [columns]="1" [heading]="'Login'">
+    <app-form-element
+      [inputType]="InputType.email"
+      [label]="'Email'"
+      [placeholder]="'Your email'"
+      #user
+    ></app-form-element>
+    <app-form-element
+      [inputType]="InputType.password"
+      [label]="'Password'"
+      [placeholder]="'Your password'"
+      #password
+    ></app-form-element>
+  </app-form-layout>
+  <app-button
+    [label]="'Login'"
+    (click)="login(user.text, password.text)"
+  ></app-button>
+</app-card>
