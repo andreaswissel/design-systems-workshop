@@ -66,7 +66,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-221a688103b58ff7f1127c2256022a9c8eba779b1030a991e4f9b37221ccd9d130af6cdaffb91c8566f1274f963920bb52219388efa6d98cc46a0559977bbb77",
+            "id": "component-ButtonComponent-5680c3282ff1404280e98e3000d28b24d38da666a877032c51e03644426395d5aa010827ced7d3f23fd8d5566161a64b47bce19c5bbe68e29501a64017a13059",
             "file": "src/app/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -87,8 +87,17 @@
                     "defaultValue": "'Button Label'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 13,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "ButtonType",
                     "decorators": []
                 }
             ],
@@ -104,13 +113,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [],\n  templateUrl: './button.component.html',\n  styleUrl: './button.component.scss',\n})\nexport class ButtonComponent {\n  @Input() public label: string = 'Button Label';\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\ntype ButtonType = 'primary' | 'secondary';\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [],\n  templateUrl: './button.component.html',\n  styleUrl: './button.component.scss',\n})\nexport class ButtonComponent {\n  @Input() public label: string = 'Button Label';\n  @Input() public type: ButtonType = 'primary';\n}\n",
             "styleUrl": "./button.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<button>{{ label }}</button>\n"
+            "templateData": "<button [attr.class]=\"type\">{{ label }}</button>\n"
         }
     ],
     "modules": [],
@@ -158,7 +167,19 @@
             }
         ],
         "functions": [],
-        "typealiases": [],
+        "typealiases": [
+            {
+                "name": "ButtonType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"primary\" | \"secondary\"",
+                "file": "src/app/button/button.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 192
+            }
+        ],
         "enumerations": [],
         "groupedVariables": {
             "src/app/app.config.ts": [
@@ -210,7 +231,21 @@
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
-        "groupedTypeAliases": {}
+        "groupedTypeAliases": {
+            "src/app/button/button.component.ts": [
+                {
+                    "name": "ButtonType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"primary\" | \"secondary\"",
+                    "file": "src/app/button/button.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 192
+                }
+            ]
+        }
     },
     "routes": [],
     "coverage": {
@@ -252,7 +287,7 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
