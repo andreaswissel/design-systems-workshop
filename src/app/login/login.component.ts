@@ -5,6 +5,7 @@ import { InputType } from '../input/input.component';
 import { CardComponent } from '../card/card.component';
 import { ButtonComponent } from '../button/button.component';
 import { LoginService } from './login.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ import { LoginService } from './login.service';
     FormElementComponent,
     CardComponent,
     ButtonComponent,
+    CommonModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
@@ -22,6 +24,7 @@ export class LoginComponent {
   InputType = InputType;
 
   @Output() onLogin: EventEmitter<any> = new EventEmitter();
+  loginState: string = '';
 
   constructor(private loginService: LoginService) {}
 
@@ -29,6 +32,8 @@ export class LoginComponent {
     this.loginService.login(user, password).subscribe((result) => {
       console.log(result);
       this.onLogin.emit(result);
+
+      this.loginState = 'LOGIN: OK';
     });
   }
 }

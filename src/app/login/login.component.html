@@ -5,16 +5,28 @@
       [label]="'Email'"
       [placeholder]="'Your email'"
       #user
+      data-testid="username"
     ></app-form-element>
     <app-form-element
       [inputType]="InputType.password"
       [label]="'Password'"
       [placeholder]="'Your password'"
       #password
+      data-testid="password"
     ></app-form-element>
   </app-form-layout>
   <app-button
     [label]="'Login'"
     (click)="login(user.text, password.text)"
   ></app-button>
+  <div
+    style="
+      padding: 10px;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.25);
+    "
+    *ngIf="loginState"
+  >
+    {{ loginState }}
+  </div>
 </app-card>
