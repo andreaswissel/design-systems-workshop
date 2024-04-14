@@ -2,6 +2,15 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export type ButtonType = 'primary' | 'secondary';
 
+/**
+ * This is the button component. It can be used to build clicky things!
+ *
+ * [Figma reference](https://www.figma.com/file/X1JRLUCEp6JnoeKAxRPNeF/Angular-Architects-Design-Systems?node-id=1%3A3)
+ *  |
+ * [Implementation](https://github.com/andreaswissel/design-systems-workshop-latest/blob/lab-6/src/app/button/button.component.ts)
+ *  |
+ * [Specification](https://github.com/andreaswissel/design-systems-workshop/wiki/Lab-06:-Documentation)
+ */
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',

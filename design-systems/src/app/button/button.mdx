@@ -1,0 +1,36 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/blocks";
+import * as ButtonStories from "./button.stories";
+
+# Button Component
+
+[Source code](https://github.com/andreaswissel/cypress-storybook-testing-talk/tree/main/projects/lego/src/components/Button)
+&nbsp;|&nbsp;
+[Figma reference](https://github.com/andreaswissel/cypress-storybook-testing-talk/tree/main/src/components/Button)
+&nbsp;|&nbsp;
+[Usage guidelines](#usage-guidelines)
+
+<Meta of={ButtonStories} name="Overview" />
+
+<Canvas>
+  <Story of={ButtonStories.Default} />
+</Canvas>
+
+## Getting started
+
+You can implement the Button component by importing the `ButtonComponent` into your NgModule / Standalone Component.
+
+```ts
+import { ButtonComponent } from "@library/button";
+```
+
+The button has to one required attribute: `label`. The `label` specifies the button label text as a string.
+You can also optionally configure a type of button by specifying a `type` attribute on the button.
+
+## Usage guidelines
+
+Avoid using the button as a link and vice-versa. It is a good idea to provide semantic labels, that give the user an idea of the action behind the button. Try to be more specific than `New` or `Save`,
+e.g. try using `Create new item` or `Update item`.
+
+## Component API
+
+<ArgsTable />
