@@ -58,7 +58,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-37157258bad886c44605291f02f54da539a97c4be8e278da6271fefadca52f938ad5343c618fbf513c8fd3383a01f0508fc03cfd1f404f9e4632b2ced4678722",
+            "id": "component-ButtonComponent-3a9204eb443f3da3871e2efa236dd0142f50fd17e0a094f982b551a6407d3aa3867831e634bd7aab2b43b7468dbe24bdd52c70c9779fc0f98096308006746439",
             "file": "src/app/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -66,9 +66,7 @@
             "outputs": [],
             "providers": [],
             "selector": "app-button",
-            "styleUrls": [
-                "./button.component.scss"
-            ],
+            "styleUrls": [],
             "styles": [],
             "templateUrl": [
                 "./button.component.html"
@@ -77,11 +75,19 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "name": "icon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "IconName | undefined",
+                    "decorators": []
+                },
+                {
                     "name": "label",
                     "defaultValue": "'Button Label'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 25,
                     "type": "string",
                     "decorators": []
                 },
@@ -90,56 +96,118 @@
                     "defaultValue": "'primary'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 26,
                     "type": "ButtonType",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 25,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "standalone": false,
-            "imports": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "IconComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
             "description": "<p>This is the button component. It can be used to build clicky things!</p>\n<p><a href=\"https://www.figma.com/file/X1JRLUCEp6JnoeKAxRPNeF/Angular-Architects-Design-Systems?node-id=1%3A3\">Figma reference</a>\n |\n<a href=\"https://github.com/andreaswissel/design-systems-workshop-latest/blob/lab-6/src/app/button/button.component.ts\">Implementation</a>\n |\n<a href=\"https://github.com/andreaswissel/design-systems-workshop/wiki/Lab-06:-Documentation\">Specification</a></p>\n",
             "rawdescription": "\n\nThis is the button component. It can be used to build clicky things!\n\n[Figma reference](https://www.figma.com/file/X1JRLUCEp6JnoeKAxRPNeF/Angular-Architects-Design-Systems?node-id=1%3A3)\n |\n[Implementation](https://github.com/andreaswissel/design-systems-workshop-latest/blob/lab-6/src/app/button/button.component.ts)\n |\n[Specification](https://github.com/andreaswissel/design-systems-workshop/wiki/Lab-06:-Documentation)\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\nexport type ButtonType = 'primary' | 'secondary';\n\n/**\n * This is the button component. It can be used to build clicky things!\n *\n * [Figma reference](https://www.figma.com/file/X1JRLUCEp6JnoeKAxRPNeF/Angular-Architects-Design-Systems?node-id=1%3A3)\n *  |\n * [Implementation](https://github.com/andreaswissel/design-systems-workshop-latest/blob/lab-6/src/app/button/button.component.ts)\n *  |\n * [Specification](https://github.com/andreaswissel/design-systems-workshop/wiki/Lab-06:-Documentation)\n */\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class ButtonComponent implements OnInit {\n  @Input() public label: string = 'Button Label';\n  @Input() public type: ButtonType = 'primary';\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { IconName } from '@fortawesome/fontawesome-svg-core';\nimport { IconComponent } from '../icon/icon.component';\nimport { CommonModule } from '@angular/common';\n\ntype ButtonType = 'primary' | 'secondary';\n\n/**\n * This is the button component. It can be used to build clicky things!\n *\n * [Figma reference](https://www.figma.com/file/X1JRLUCEp6JnoeKAxRPNeF/Angular-Architects-Design-Systems?node-id=1%3A3)\n *  |\n * [Implementation](https://github.com/andreaswissel/design-systems-workshop-latest/blob/lab-6/src/app/button/button.component.ts)\n *  |\n * [Specification](https://github.com/andreaswissel/design-systems-workshop/wiki/Lab-06:-Documentation)\n */\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [IconComponent, CommonModule],\n  templateUrl: './button.component.html',\n  styleUrl: './button.component.scss',\n})\nexport class ButtonComponent {\n  @Input() public label: string = 'Button Label';\n  @Input() public type: ButtonType = 'primary';\n  @Input() public icon: IconName | undefined;\n}\n",
+            "styleUrl": "./button.component.scss",
             "assetsDirs": [],
-            "styleUrlsData": [
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<button [attr.class]=\"type\">\n  <app-icon [iconName]=\"icon\" *ngIf=\"icon\"></app-icon>\n  {{ label }}\n</button>\n"
+        },
+        {
+            "name": "IconComponent",
+            "id": "component-IconComponent-da3063b7ce08edf3ae49b5293ffd85c909105f1e1d9661e15beee6fff22ff2f83fa635b00ab97160be9fdde0c73dc831b4febe004ed9a7b9a2c581b099554dd9",
+            "file": "src/app/icon/icon.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-icon",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./icon.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
                 {
-                    "data": "@import \"../../styles/colors\";\n\nbutton {\n  background: $blue-400;\n\n  border: 1px solid $blue-700;\n  box-sizing: border-box;\n  box-shadow: inset 0px 2px 0px rgba(202, 230, 255, 0.15);\n  border-radius: 5px;\n\n  font-family: \"SF Pro Display\", Helvetica, Arial, sans-serif;\n  font-style: normal;\n  font-weight: 600;\n  font-size: 13px;\n  line-height: 16px;\n  display: flex;\n  align-items: center;\n  text-align: center;\n\n  color: #ffffff;\n\n  padding: 11px 16px;\n\n  &.primary {\n    background: $blue-400;\n    border: 1px solid $blue-700;\n  }\n\n  &.secondary {\n    background: $gray-100;\n    border: 1px solid $gray-200;\n    color: $text-default;\n  }\n}\n",
-                    "styleUrl": "./button.component.scss"
+                    "name": "iconName",
+                    "defaultValue": "'fingerprint'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "IconName",
+                    "decorators": []
                 }
             ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "FontAwesomeModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport {\n  FaIconLibrary,\n  FontAwesomeModule,\n} from '@fortawesome/angular-fontawesome';\nimport { IconName, far } from '@fortawesome/free-regular-svg-icons';\nimport { fas } from '@fortawesome/free-solid-svg-icons';\n\n@Component({\n  selector: 'app-icon',\n  standalone: true,\n  imports: [FontAwesomeModule],\n  templateUrl: './icon.component.html',\n  styleUrl: './icon.component.css',\n})\nexport class IconComponent {\n  @Input() public iconName: IconName = 'fingerprint';\n\n  constructor(library: FaIconLibrary) {\n    library.addIconPacks(fas, far);\n  }\n}\n",
+            "styleUrl": "./icon.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
             "stylesData": "",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "args": [],
-                "line": 21
+                "args": [
+                    {
+                        "name": "library",
+                        "type": "FaIconLibrary",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 17,
+                "jsdoctags": [
+                    {
+                        "name": "library",
+                        "type": "FaIconLibrary",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             },
             "extends": [],
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<button [attr.class]=\"type\">{{ label }}</button>\n"
+            "templateData": "<fa-icon [icon]=\"iconName\"></fa-icon>\n"
         }
     ],
     "modules": [],
@@ -232,8 +300,17 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
-                "coveragePercent": 20,
-                "coverageCount": "1/5",
+                "coveragePercent": 25,
+                "coverageCount": "1/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/icon/icon.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "IconComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             }
         ]

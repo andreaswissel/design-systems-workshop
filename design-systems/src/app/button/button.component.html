@@ -1,1 +1,4 @@
-<button [attr.class]="type">{{ label }}</button>
+<button [attr.class]="type">
+  <app-icon [iconName]="icon" *ngIf="icon"></app-icon>
+  {{ label }}
+</button>

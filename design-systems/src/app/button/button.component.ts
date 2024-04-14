@@ -1,6 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { IconComponent } from '../icon/icon.component';
+import { CommonModule } from '@angular/common';
 
-export type ButtonType = 'primary' | 'secondary';
+type ButtonType = 'primary' | 'secondary';
 
 /**
  * This is the button component. It can be used to build clicky things!
@@ -13,14 +16,13 @@ export type ButtonType = 'primary' | 'secondary';
  */
 @Component({
   selector: 'app-button',
+  standalone: true,
+  imports: [IconComponent, CommonModule],
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss'],
+  styleUrl: './button.component.scss',
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
   @Input() public label: string = 'Button Label';
   @Input() public type: ButtonType = 'primary';
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  @Input() public icon: IconName | undefined;
 }
