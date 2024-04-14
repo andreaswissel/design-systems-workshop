@@ -1,0 +1,14 @@
+button {
+  display: inline-flex;
+  padding: 11px 16px;
+  align-items: flex-start;
+
+  border-radius: 5px;
+  border: 1px solid var(--blue-700, #0357a3);
+  background: #0085fc;
+  box-shadow: 0px 2px 0px 0px rgba(255, 255, 255, 0.15) inset;
+
+  color: var(--white, #fff);
+  font-size: 13px;
+  font-family: "Inter", Helvetica, Arial, Helvetica, sans-serif;
+}

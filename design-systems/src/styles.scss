@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+app-button,
+app-input,
+app-login,
+app-form-group {
+  display: flex;
+}
