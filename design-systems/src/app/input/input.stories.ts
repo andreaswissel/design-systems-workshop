@@ -7,7 +7,7 @@ const meta: Meta<InputComponent> = {
   tags: ['autodocs'],
 };
 
-export const Default: StoryObj<InputComponent> = {
+export const Default: StoryObj<Omit<InputComponent, 'input'>> = {
   args: {
     inputType: InputType.text,
     placeholder: 'This is a placeholder',

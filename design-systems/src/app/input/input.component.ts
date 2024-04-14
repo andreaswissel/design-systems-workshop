@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 export enum InputType {
   button = 'button',
@@ -43,4 +43,10 @@ export class InputComponent {
   @Input() placeholder: string | undefined;
   @Input() value: string | undefined;
   @Input() id?: string;
+
+  @ViewChild('input', { static: false }) input!: ElementRef<HTMLInputElement>;
+
+  get text(): string {
+    return this.input.nativeElement.value;
+  }
 }

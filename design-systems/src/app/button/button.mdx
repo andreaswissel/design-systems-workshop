@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, Controls } from "@storybook/blocks";
+import { Meta, Story, Canvas, Controls, Primary } from "@storybook/blocks";
 import * as ButtonStories from "./button.stories";
 
 # Button Component
@@ -11,9 +11,11 @@ import * as ButtonStories from "./button.stories";
 
 <Meta of={ButtonStories} name="Overview" />
 
-<Canvas>
-  <Story of={ButtonStories.Default} />
-</Canvas>
+
+<Canvas of={ButtonStories.Default} />
+
+<Canvas of={ButtonStories.WithIcon} />
+
 
 ## Getting started
 

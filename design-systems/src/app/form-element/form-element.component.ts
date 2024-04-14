@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { InputApi, InputComponent, InputType } from '../input/input.component';
 
 @Component({
@@ -10,6 +10,8 @@ import { InputApi, InputComponent, InputType } from '../input/input.component';
 })
 export class FormElementComponent implements InputApi {
   uuid: string;
+
+  @ViewChild(InputComponent, { static: false }) input!: InputComponent;
 
   @Input() inputType: InputType = InputType.text;
   @Input() placeholder: string = 'Form Element Placeholder';

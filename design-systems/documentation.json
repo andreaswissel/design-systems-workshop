@@ -1,7 +1,167 @@
 {
     "pipes": [],
-    "interfaces": [],
-    "injectables": [],
+    "interfaces": [
+        {
+            "name": "InputApi",
+            "id": "interface-InputApi-45663dd673e9c2bd64c6cf8580e1a66f1a01a4d5171aa9428040086782c811c101c953087d3466925ae5b1e20af701afa12523b4b7a8978f2b6ec179915d010f",
+            "file": "src/app/input/input.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, ElementRef, Input, ViewChild } from '@angular/core';\n\nexport enum InputType {\n  button = 'button',\n  checkbox = 'checkbox',\n  color = 'color',\n  date = 'date',\n  datetimelocal = 'datetime-local',\n  email = 'email',\n  file = 'file',\n  hidden = 'hidden',\n  image = 'image',\n  month = 'month',\n  number = 'number',\n  password = 'password',\n  radio = 'radio',\n  range = 'range',\n  reset = 'reset',\n  search = 'search',\n  submit = 'submit',\n  tel = 'tel',\n  text = 'text',\n  time = 'time',\n  url = 'url',\n  week = 'week',\n}\n\nexport interface InputApi {\n  inputType: InputType;\n  placeholder?: string;\n  value?: string;\n}\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [],\n  templateUrl: './input.component.html',\n  styleUrl: './input.component.scss',\n})\nexport class InputComponent {\n  @Input() inputType: InputType = InputType.text;\n  @Input() placeholder: string | undefined;\n  @Input() value: string | undefined;\n  @Input() id?: string;\n\n  @ViewChild('input', { static: false }) input!: ElementRef<HTMLInputElement>;\n\n  get text(): string {\n    return this.input.nativeElement.value;\n  }\n}\n",
+            "properties": [
+                {
+                    "name": "inputType",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "InputType",
+                    "optional": false,
+                    "description": "",
+                    "line": 29
+                },
+                {
+                    "name": "placeholder",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 30
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 31
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "LoginService",
+            "id": "injectable-LoginService-6d0256eef38bb770db576816cdd88a634ffba1d2b2a441836bab0c7512fc5690f058597aaf9eeb604bc6d805c0853d8838caf8d4dbe07dd9d6f180a836a1022c",
+            "file": "src/app/login/login.service.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "login",
+                    "args": [
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<boolean>",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { Observable, throwError } from 'rxjs';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class LoginService {\n  login(username: string, password: string): Observable<boolean> {\n    return throwError(() => new Error('Not implemented.'));\n  }\n}\n",
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "MockLoginService",
+            "id": "injectable-MockLoginService-8a311255c5970bf35a945529fe43de3096bd7703f35da4baea513a74b63ab6b38890356582f359f9d7bd0e08d98b85f2bc166476058be06f7956b6736547a012",
+            "file": "src/app/login/mocks/mock-login.service.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "login",
+                    "args": [
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<boolean>",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { Observable, of } from 'rxjs';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class MockLoginService {\n  login(username: string, password: string): Observable<boolean> {\n    return of(!!username && username === password);\n  }\n}\n",
+            "extends": [],
+            "type": "injectable"
+        }
+    ],
     "guards": [],
     "interceptors": [],
     "classes": [],
@@ -131,6 +291,224 @@
             "templateData": "<button [attr.class]=\"type\">\n  <app-icon [iconName]=\"icon\" *ngIf=\"icon\"></app-icon>\n  {{ label }}\n</button>\n"
         },
         {
+            "name": "CardComponent",
+            "id": "component-CardComponent-f09c9cbb62116ddc8359b45961d0583d2646a0f1ee340a87124e16a1c4a6eb36c4bfc99124554d8e9dcd128bb55aa7a6676164f015f7ed1733f707d92bcaa6b4",
+            "file": "src/app/card/card.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-card",
+            "styleUrls": [
+                "./card.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./card.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  standalone: true,\n  imports: [],\n  styleUrls: ['./card.component.scss'],\n})\nexport class CardComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\n  display: inline-flex;\n\n  border-radius: 10px;\n  border: 1px solid #e4e8f3;\n  background: var(--alias-white, #fff);\n  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);\n\n  min-width: 400px;\n  flex-direction: column;\n  padding: 24px;\n  align-items: flex-start;\n  gap: 10px;\n  flex-shrink: 0;\n}\n",
+                    "styleUrl": "./card.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<ng-content></ng-content>\n"
+        },
+        {
+            "name": "FormElementComponent",
+            "id": "component-FormElementComponent-aadfbb30f896b5f49f1aa76f7c109276ecece47c934f8436d95fa0d4c59a9f6852b4de62bdf625bea854834dcfa1ac19d20a043773596bc383764a228c502f57",
+            "file": "src/app/form-element/form-element.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-form-element",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./form-element.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "inputType",
+                    "defaultValue": "InputType.text",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "InputType",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Input Label'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "defaultValue": "'Form Element Placeholder'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "uuid",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "InputComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { InputApi, InputComponent, InputType } from '../input/input.component';\n\n@Component({\n  selector: 'app-form-element',\n  standalone: true,\n  imports: [InputComponent],\n  templateUrl: './form-element.component.html',\n  styleUrl: './form-element.component.scss',\n})\nexport class FormElementComponent implements InputApi {\n  uuid: string;\n\n  @Input() inputType: InputType = InputType.text;\n  @Input() placeholder: string = 'Form Element Placeholder';\n  @Input() value = '';\n  @Input() label = 'Input Label';\n\n  constructor() {\n    this.uuid = crypto.randomUUID();\n  }\n}\n",
+            "styleUrl": "./form-element.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 17
+            },
+            "extends": [],
+            "implements": [
+                "InputApi"
+            ],
+            "templateData": "<label [for]=\"uuid\">{{ label }}</label>\n<app-input\n  [placeholder]=\"placeholder\"\n  [inputType]=\"inputType\"\n  [value]=\"value\"\n  [id]=\"uuid\"\n></app-input>\n"
+        },
+        {
+            "name": "FormLayoutComponent",
+            "id": "component-FormLayoutComponent-1521ad3564bb215dbf5e648dea3771b80bb7bfed09568d99551c08d08a9d6eebc9bd15badf62f3c660ca4f134d71d18b3cce60fe4ea8653d7cf0d129dd1f181f",
+            "file": "src/app/form-layout/form-layout.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-form-layout",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./form-layout.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "columns",
+                    "defaultValue": "1",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "heading",
+                    "defaultValue": "'Form Heading'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-form-layout',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './form-layout.component.html',\n  styleUrl: './form-layout.component.scss',\n})\nexport class FormLayoutComponent {\n  @Input() columns = 1;\n  @Input() heading: string = 'Form Heading';\n\n  get templateColumnsString() {\n    return `repeat(${this.columns}, 1fr)`;\n  }\n}\n",
+            "styleUrl": "./form-layout.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "templateColumnsString": {
+                    "name": "templateColumnsString",
+                    "getSignature": {
+                        "name": "templateColumnsString",
+                        "type": "",
+                        "returnType": "",
+                        "line": 15
+                    }
+                }
+            },
+            "templateData": "<legend>{{ heading }}</legend>\n<div\n  class=\"grid-layout\"\n  [ngStyle]=\"{ 'grid-template-columns': templateColumnsString }\"\n>\n  <ng-content></ng-content>\n</div>\n"
+        },
+        {
             "name": "IconComponent",
             "id": "component-IconComponent-da3063b7ce08edf3ae49b5293ffd85c909105f1e1d9661e15beee6fff22ff2f83fa635b00ab97160be9fdde0c73dc831b4febe004ed9a7b9a2c581b099554dd9",
             "file": "src/app/icon/icon.component.ts",
@@ -208,6 +586,245 @@
             },
             "extends": [],
             "templateData": "<fa-icon [icon]=\"iconName\"></fa-icon>\n"
+        },
+        {
+            "name": "InputComponent",
+            "id": "component-InputComponent-45663dd673e9c2bd64c6cf8580e1a66f1a01a4d5171aa9428040086782c811c101c953087d3466925ae5b1e20af701afa12523b4b7a8978f2b6ec179915d010f",
+            "file": "src/app/input/input.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-input",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 45,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "inputType",
+                    "defaultValue": "InputType.text",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": "InputType",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 43,
+                    "type": "string | undefined",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 44,
+                    "type": "string | undefined",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "input",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ElementRef<HTMLInputElement>",
+                    "optional": false,
+                    "description": "",
+                    "line": 47,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'input', {static: false}"
+                        }
+                    ],
+                    "modifierKind": [
+                        170
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, ElementRef, Input, ViewChild } from '@angular/core';\n\nexport enum InputType {\n  button = 'button',\n  checkbox = 'checkbox',\n  color = 'color',\n  date = 'date',\n  datetimelocal = 'datetime-local',\n  email = 'email',\n  file = 'file',\n  hidden = 'hidden',\n  image = 'image',\n  month = 'month',\n  number = 'number',\n  password = 'password',\n  radio = 'radio',\n  range = 'range',\n  reset = 'reset',\n  search = 'search',\n  submit = 'submit',\n  tel = 'tel',\n  text = 'text',\n  time = 'time',\n  url = 'url',\n  week = 'week',\n}\n\nexport interface InputApi {\n  inputType: InputType;\n  placeholder?: string;\n  value?: string;\n}\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [],\n  templateUrl: './input.component.html',\n  styleUrl: './input.component.scss',\n})\nexport class InputComponent {\n  @Input() inputType: InputType = InputType.text;\n  @Input() placeholder: string | undefined;\n  @Input() value: string | undefined;\n  @Input() id?: string;\n\n  @ViewChild('input', { static: false }) input!: ElementRef<HTMLInputElement>;\n\n  get text(): string {\n    return this.input.nativeElement.value;\n  }\n}\n",
+            "styleUrl": "./input.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "text": {
+                    "name": "text",
+                    "getSignature": {
+                        "name": "text",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 49
+                    }
+                }
+            },
+            "templateData": "<input\n  [type]=\"inputType\"\n  [placeholder]=\"placeholder\"\n  [value]=\"value\"\n  [attr.id]=\"id\"\n  #input\n/>\n"
+        },
+        {
+            "name": "LoginComponent",
+            "id": "component-LoginComponent-42a3ae6dec37d2bf05f17c668389323397e501d2ae9719ed29e7fa39d7ffa7c10253e5fda4545a85a58db13f1b19109f8cc9629bb332a998daf32df30359ad19",
+            "file": "src/app/login/login.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-login",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./login.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "onLogin",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "EventEmitter<any>"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "InputType",
+                    "defaultValue": "InputType",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "loginService",
+                    "defaultValue": "inject(LoginService)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "login",
+                    "args": [
+                        {
+                            "name": "user",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 29,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "user",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "FormLayoutComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "FormElementComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "CardComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Inject, Output, inject } from '@angular/core';\nimport { FormLayoutComponent } from '../form-layout/form-layout.component';\nimport { FormElementComponent } from '../form-element/form-element.component';\nimport { InputType } from '../input/input.component';\nimport { CardComponent } from '../card/card.component';\nimport { ButtonComponent } from '../button/button.component';\nimport { LoginService } from './login.service';\n\n@Component({\n  selector: 'app-login',\n  standalone: true,\n  imports: [\n    FormLayoutComponent,\n    FormElementComponent,\n    CardComponent,\n    ButtonComponent,\n  ],\n  templateUrl: './login.component.html',\n  styleUrl: './login.component.scss',\n})\nexport class LoginComponent {\n  InputType = InputType;\n  loginService = inject(LoginService);\n\n  @Output() onLogin: EventEmitter<any> = new EventEmitter();\n\n  constructor() {}\n\n  login(user: string, password: string) {\n    this.loginService.login(user, password).subscribe((result) => {\n      console.log(result);\n      this.onLogin.emit(result);\n    });\n  }\n}\n",
+            "styleUrl": "./login.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 25
+            },
+            "extends": [],
+            "templateData": "<app-card>\n  <app-form-layout [columns]=\"1\" [heading]=\"'Login'\">\n    <app-form-element\n      [inputType]=\"InputType.email\"\n      [label]=\"'Email'\"\n      [placeholder]=\"'Your email'\"\n      #user\n    ></app-form-element>\n    <app-form-element\n      [inputType]=\"InputType.password\"\n      [label]=\"'Password'\"\n      [placeholder]=\"'Your password'\"\n      #password\n    ></app-form-element>\n  </app-form-layout>\n  <app-button\n    [label]=\"'Login'\"\n    (click)=\"login(user.text, password.text)\"\n  ></app-button>\n</app-card>\n"
         }
     ],
     "modules": [],
@@ -238,7 +855,151 @@
                 "kind": 192
             }
         ],
-        "enumerations": [],
+        "enumerations": [
+            {
+                "name": "InputType",
+                "childs": [
+                    {
+                        "name": "button",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "button"
+                    },
+                    {
+                        "name": "checkbox",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "checkbox"
+                    },
+                    {
+                        "name": "color",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "color"
+                    },
+                    {
+                        "name": "date",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "date"
+                    },
+                    {
+                        "name": "datetimelocal",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "datetime-local"
+                    },
+                    {
+                        "name": "email",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "email"
+                    },
+                    {
+                        "name": "file",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "file"
+                    },
+                    {
+                        "name": "hidden",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "hidden"
+                    },
+                    {
+                        "name": "image",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "image"
+                    },
+                    {
+                        "name": "month",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "month"
+                    },
+                    {
+                        "name": "number",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "number"
+                    },
+                    {
+                        "name": "password",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "password"
+                    },
+                    {
+                        "name": "radio",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "radio"
+                    },
+                    {
+                        "name": "range",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "range"
+                    },
+                    {
+                        "name": "reset",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "reset"
+                    },
+                    {
+                        "name": "search",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "search"
+                    },
+                    {
+                        "name": "submit",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "submit"
+                    },
+                    {
+                        "name": "tel",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "tel"
+                    },
+                    {
+                        "name": "text",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "text"
+                    },
+                    {
+                        "name": "time",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "time"
+                    },
+                    {
+                        "name": "url",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "url"
+                    },
+                    {
+                        "name": "week",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "week"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/app/input/input.component.ts"
+            }
+        ],
         "groupedVariables": {
             "src/app/app.config.ts": [
                 {
@@ -254,7 +1015,153 @@
             ]
         },
         "groupedFunctions": {},
-        "groupedEnumerations": {},
+        "groupedEnumerations": {
+            "src/app/input/input.component.ts": [
+                {
+                    "name": "InputType",
+                    "childs": [
+                        {
+                            "name": "button",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "button"
+                        },
+                        {
+                            "name": "checkbox",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "checkbox"
+                        },
+                        {
+                            "name": "color",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "color"
+                        },
+                        {
+                            "name": "date",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "date"
+                        },
+                        {
+                            "name": "datetimelocal",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "datetime-local"
+                        },
+                        {
+                            "name": "email",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "email"
+                        },
+                        {
+                            "name": "file",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "file"
+                        },
+                        {
+                            "name": "hidden",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "hidden"
+                        },
+                        {
+                            "name": "image",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "image"
+                        },
+                        {
+                            "name": "month",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "month"
+                        },
+                        {
+                            "name": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "number"
+                        },
+                        {
+                            "name": "password",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "password"
+                        },
+                        {
+                            "name": "radio",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "radio"
+                        },
+                        {
+                            "name": "range",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "range"
+                        },
+                        {
+                            "name": "reset",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "reset"
+                        },
+                        {
+                            "name": "search",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "search"
+                        },
+                        {
+                            "name": "submit",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "submit"
+                        },
+                        {
+                            "name": "tel",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "tel"
+                        },
+                        {
+                            "name": "text",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "text"
+                        },
+                        {
+                            "name": "time",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "time"
+                        },
+                        {
+                            "name": "url",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "url"
+                        },
+                        {
+                            "name": "week",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "week"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/app/input/input.component.ts"
+                }
+            ]
+        },
         "groupedTypeAliases": {
             "src/app/button/button.component.ts": [
                 {
@@ -273,7 +1180,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 6,
+        "count": 2,
         "status": "low",
         "files": [
             {
@@ -305,12 +1212,84 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/card/card.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CardComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/form-element/form-element.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FormElementComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/form-layout/form-layout.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FormLayoutComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/icon/icon.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "IconComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/input/input.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/input/input.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "InputApi",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/login/login.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoginComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/login/login.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "LoginService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/login/mocks/mock-login.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "MockLoginService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             }
         ]
