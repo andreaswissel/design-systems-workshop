@@ -1,12 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+export type ButtonType = 'primary' | 'secondary';
 
 @Component({
   selector: 'app-button',
-  standalone: true,
-  imports: [],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.scss',
+  styleUrls: ['./button.component.scss'],
 })
-export class ButtonComponent {
+export class ButtonComponent implements OnInit {
   @Input() public label: string = 'Button Label';
+  @Input() public type: ButtonType = 'primary';
+
+  constructor() {}
+
+  ngOnInit(): void {}
 }

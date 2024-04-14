@@ -11,4 +11,15 @@ button {
   color: var(--white, #fff);
   font-size: 13px;
   font-family: "Inter", Helvetica, Arial, Helvetica, sans-serif;
+
+  &.primary {
+    border: 1px solid var(--blue-700, #0357a3);
+    background: #0085fc;
+  }
+
+  &.secondary {
+    border: 1px solid var(--gray-200, #cbd0e1);
+    background: var(--gray-100, #e4e8f3);
+    color: var(--text-default, #041c31);
+  }
 }
