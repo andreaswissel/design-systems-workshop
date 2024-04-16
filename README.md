@@ -46,4 +46,4 @@ git clone https://github.com/andreaswissel/design-systems-workshop
 cd design-systems-workshop
 ```
 
-If you prefer SSH, you can use this checkout URL: `git@github.com:andreaswissel/design-systems-essentials.git`
+If you prefer SSH, you can use this checkout URL: `git@github.com:andreaswissel/design-systems-workshop.git`
